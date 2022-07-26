@@ -39,8 +39,8 @@ const changeDiceImg = () => {
   setDiceValue(index);
 };
 
-function play() {
-  var audio = new Audio('sound.mp3');
+function play(sound) {
+  var audio = new Audio(sound);
   audio.play();
 }
 
@@ -50,7 +50,7 @@ const toggleSnackBar = winner => {
 };
 
 const switchPlayer = () => {
-  play();
+  play('switch.mp3');
   if (Player1.classList.contains('player--active')) {
     Player1.classList.remove('player--active');
     Player2.classList.add('player--active');
@@ -102,11 +102,13 @@ const checkWinner = () => {
   if (player1Score >= 100) {
     // alert('player 1 wins');
     toggleSnackBar('Player 1 ');
+    play('gameover.mp3');
     return true;
   }
   if (player2Score >= 100) {
     // alert('player 2 wins');
     toggleSnackBar('Player 2');
+    play('gameover.mp3');
     return true;
   }
   return false;
