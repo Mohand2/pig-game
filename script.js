@@ -39,12 +39,18 @@ const changeDiceImg = () => {
   setDiceValue(index);
 };
 
+function play() {
+  var audio = new Audio('sound.mp3');
+  audio.play();
+}
+
 const toggleSnackBar = winner => {
   snackBar.classList.add('show');
   snackBar.textContent = `The winner is ${winner}`;
 };
 
 const switchPlayer = () => {
+  play();
   if (Player1.classList.contains('player--active')) {
     Player1.classList.remove('player--active');
     Player2.classList.add('player--active');
