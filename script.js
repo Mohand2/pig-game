@@ -8,6 +8,19 @@ const diceImgs = [
   'dice-5.png',
   'dice-6.png',
 ];
+const sounds = [
+  'akournid.mp3',
+  'asarwal.mp3',
+  'baah.mp3',
+  'dormir.mp3',
+  'god-1.mp3',
+  'run.mp3',
+  'shit.mp3',
+  'wow.mp3',
+  'danvdu.mp3',
+  'maman.mp3',
+  'dakour.mp3',
+];
 
 let diceValue;
 let currentScore = 0;
@@ -50,7 +63,10 @@ const toggleSnackBar = winner => {
 };
 
 const switchPlayer = () => {
-  play('switch.mp3');
+  const i = Math.floor(Math.random() * sounds.length);
+  console.log(`sfx/${sounds[i]}`);
+  play(`sfx/${sounds[i]}`);
+
   if (Player1.classList.contains('player--active')) {
     Player1.classList.remove('player--active');
     Player2.classList.add('player--active');
@@ -102,13 +118,13 @@ const checkWinner = () => {
   if (player1Score >= 100) {
     // alert('player 1 wins');
     toggleSnackBar('Player 1 ');
-    play('gameover.mp3');
+    play('sfx/win.mp3');
     return true;
   }
   if (player2Score >= 100) {
     // alert('player 2 wins');
     toggleSnackBar('Player 2');
-    play('gameover.mp3');
+    play('sfx/win.mp3');
     return true;
   }
   return false;
