@@ -93,12 +93,12 @@ const resetGame = async () => {
 };
 
 const checkWinner = () => {
-  if (player1Score >= 30) {
+  if (player1Score >= 100) {
     // alert('player 1 wins');
     toggleSnackBar('Player 1 ');
     return true;
   }
-  if (player2Score >= 30) {
+  if (player2Score >= 100) {
     // alert('player 2 wins');
     toggleSnackBar('Player 2');
     return true;
